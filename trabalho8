@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    float salarios[10], soma = 0.0, media;
+    int n, i, opcao;
+
+    // Entrada da quantidade de salários
+    do {
+        printf("Digite a quantidade de salários (1 a 10): ");
+        scanf("%d", &n);
+        if (n < 1 || n > 10) {
+            printf("Valor inválido! Digite um número entre 1 e 10.\n");
+        }
+    } while (n < 1 || n > 10);
+
+    // Leitura dos salários
+    printf("\nDigite os %d salários:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("Salário %d: R$ ", i + 1);
+        scanf("%f", &salarios[i]);
+        soma += salarios[i];
+    }
+
+    // Menu de opções
+    do {
+        printf("\n===== MENU DE SALÁRIOS =====\n");
+        printf("1) Listar salários\n");
+        printf("2) Média dos salários\n");
+        printf("0) Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("\n--- Lista de Salários ---\n");
+                for (i = 0; i < n; i++) {
+                    printf("Salário %d: R$ %.2f\n", i + 1, salarios[i]);
+                }
+                break;
+
+            case 2:
+                media = soma / n;
+                printf("\nMédia dos salários: R$ %.2f\n", media);
+                break;
+
+            case 0:
+                printf("\nEncerrando o programa...\n");
+                break;
+
+            default:
+                printf("\nOpção inválida! Tente novamente.\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
