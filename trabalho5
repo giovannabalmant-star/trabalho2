@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char texto[101]; // até 100 caracteres + '\0'
+    int i, cont_vogais = 0;
+
+    // Entrada da string
+    printf("Digite uma frase (até 100 caracteres):\n");
+    fgets(texto, 101, stdin); // lê até 100 caracteres, incluindo espaços
+
+    // Percorre a string e conta as vogais
+    for (i = 0; i < strlen(texto); i++) {
+        char c = tolower(texto[i]); // converte para minúscula
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o
