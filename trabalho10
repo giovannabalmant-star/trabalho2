@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int ids[10];
+    double salarios[10];
+    int n, i, opcao;
+
+    // Entrada da quantidade de funcionários
+    do {
+        printf("Digite a quantidade de funcionários (1 a 10): ");
+        scanf("%d", &n);
+        if (n < 1 || n > 10) {
+            printf("Valor inválido! Digite entre 1 e 10.\n");
+        }
+    } while (n < 1 || n > 10);
+
+    // Cadastro dos funcionários
+    printf("\n--- Cadas
