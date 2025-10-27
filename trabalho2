@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+    int soma = 0;
+    int quantidade = 0;
+
+    printf("Digite números inteiros (digite -1 para encerrar):\n");
+
+    // Loop de repetição até o usuário digitar -1
+    while (1) {
+        scanf("%d", &numero);
+
+        if (numero == -1) {
+            break; // Encerra o loop
+        }
+
+        soma += numero;       // Acumula a soma
+        quantidade++;         // Conta os números digitados
+    }
+
+    // Verifica se o usuário digitou algum número válido
+    if (quantidade > 0) {
+        float media = (float)soma / quantidade;
+        printf("\nQuantidade de números: %d\n", quantidade);
+        printf("Soma: %d\n", soma);
+        printf("Média: %.2f\n", media);
+    } else {
+        printf("\nNenhum número válido foi digitado.\n");
+    }
+
+    return 0;
+}
