@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+int main() {
+    float vendas[2][2];
+    int i, j, opcao;
+
+    // Entrada dos valores de vendas
+    printf("Digite os valores de vendas (R$):\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("Filial %d - Mês %d: R$ ", i + 1, j + 1);
+            scanf("%f", &vendas[i][j]);
+        }
+    }
+
+    // Menu interativo
+    do {
+        printf("\n===== MENU DE VENDAS =====\n");
+        printf("1) Total por filial (linha)\n");
+        printf("2) Total por mês (coluna)\n");
+        printf("3) Total geral\n");
+        printf("0) Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1: {
+                printf("\n--- Total por Filial ---\n");
+                for (i = 0; i < 2; i++) {
+                    float total_filial = 0;
+                    for (j = 0; j < 2; j++) {
+                        total_filial += vendas[i][j];
+                    }
+                    printf("Filial %d: R$ %.2f\n", i + 1, total_filial);
+                }
+                break;
+            }
+
+            case 2: {
+                printf("\n--- Total por Mês ---\n");
+                for (j = 0; j < 2; j++) {
+                    float total_mes = 0;
+                    for (i = 0; i < 2; i++) {
+                        total_mes += vendas[i][j];
+                    }
+                    printf("Mês %d: R$ %.2f\n", j + 1, total_mes);
+                }
+                break;
+            }
+
+            case 3: {
+                float total_geral = 0;
+                for (i = 0; i < 2; i++) {
+                    for (j = 0; j < 2; j++) {
+                        total_geral += vendas[i][j];
+                    }
+                }
+                printf("\nTotal geral de vendas: R$ %.2f\n", total_geral);
+                break;
+            }
+
+            case 0:
+                printf("\nEncerrando o programa...\n");
+                break;
+
+            default:
+                printf("\nOpção inválida! Tente novamente.\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
