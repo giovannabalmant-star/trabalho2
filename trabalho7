@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    float salario, inss, valor_hora, horas_extras, valor_extra;
+    int opcao;
+
+    // Entrada do salário
+    printf("Digite o salário mensal do colaborador: R$ ");
+    scanf("%f", &salario);
+
+    do {
+        // Exibição do menu
+        printf("\n===== MENU RH =====\n");
+        printf("1) Calcular INSS (8%% do salário)\n");
+        printf("2) Calcular valor das horas extras\n");
+        printf("0) Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                inss
